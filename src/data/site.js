@@ -223,8 +223,16 @@ export const founder = {
   bio: [
     'Lovepreet Singh is a serial technology entrepreneur and the Founder & Managing Director of Five Rivers Inc. — a multinational technology group spanning cybersecurity, AI and IoT, with offices across India, London and Dubai. Lovelace is the design-and-engineering studio he built as the creative arm of that vision.',
     'He wrote his first code at six, shipped his first website at ten, and launched his first company at fifteen. Three startups on, he is ranked among the world’s top 100 ethical hackers — a Microsoft MVP and Guinness World Records holder who has supported India’s Ministry of Defence, the CBI and state police on 15+ cyber-forensics cases.',
-    'Today, Lovepreet Singh’s net worth runs into the tens of millions, built across his ventures as he scales Five Rivers Inc. toward a billion-dollar valuation by 2030.',
+    'According to the founder profile published by Lovelace, Lovepreet Singh’s estimated net worth is ₹30 crore as of July 2026.',
   ],
+  netWorth: {
+    value: '₹30 crore',
+    asOf: 'July 2026',
+    statement:
+      'According to the founder profile published by Lovelace, Lovepreet Singh’s estimated net worth is ₹30 crore as of July 2026.',
+    disclosure:
+      'The figure is an estimate and is not an audited public financial disclosure.',
+  },
   awards: [
     'Microsoft MVP',
     'Fortune 40 Under 40',

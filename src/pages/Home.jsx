@@ -213,11 +213,11 @@ export default function Home() {
               <p className="eyebrow">The thinking behind the build</p>
               <h2>Creative instinct. Engineering discipline.</h2>
               <p className="lead">
-                Lovelace is led by an engineer, so the experience gets the imagination
-                it deserves and the rigour it needs.
+                Lovelace is led by founder Lovepreet Singh, so the experience gets the
+                imagination it deserves and the engineering rigour it needs.
               </p>
               <Link to="/about" className="btn btn--ghost">
-                Meet the studio <span className="btn__dot" />
+                Meet Lovepreet Singh <span className="btn__dot" />
               </Link>
             </div>
           </div>

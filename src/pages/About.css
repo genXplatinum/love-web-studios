@@ -82,6 +82,99 @@
   line-height: 1.16;
 }
 
+.about-profile {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+.about-profile__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 84px;
+  align-items: start;
+}
+
+.about-profile .eyebrow {
+  color: var(--coral);
+}
+
+.about-profile__heading h2 {
+  max-width: 13ch;
+  margin-top: 18px;
+  font-size: 58px;
+}
+
+.about-profile__answer {
+  padding-top: 18px;
+  border-top: 2px solid rgba(255, 255, 255, 0.88);
+}
+
+.about-profile__answer > .mono {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-profile__value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  margin: 22px 0 44px;
+}
+
+.about-profile__value strong {
+  font-family: var(--font-display);
+  font-size: 76px;
+  line-height: 0.92;
+}
+
+.about-profile__value span {
+  padding: 8px 10px;
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.about-profile__answer h3 {
+  margin-bottom: 14px;
+  font-size: 28px;
+}
+
+.about-profile__answer > p:not(.mono) {
+  max-width: 64ch;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 18px;
+  line-height: 1.68;
+}
+
+.about-profile__disclosure {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 14px !important;
+}
+
+.about-profile__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.about-profile__facts div {
+  display: grid;
+  gap: 8px;
+}
+
+.about-profile__facts dt {
+  color: var(--coral);
+}
+
+.about-profile__facts dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.45;
+}
+
 .about-gallery {
   background: var(--paper-strong);
 }
@@ -180,11 +273,13 @@
 @media (max-width: 920px) {
   .about-principle__grid,
   .about-founder__grid,
+  .about-profile__grid,
   .about-gallery__intro,
   .about-trajectory__grid { grid-template-columns: 1fr; }
   .about-principle h2 { font-size: 48px; }
   .about-founder__image-wrap { position: static; }
   .about-founder__copy h2 { font-size: 52px; }
+  .about-profile__heading h2 { max-width: 17ch; font-size: 48px; }
   .about-gallery__intro h2 { font-size: 48px; }
   .about-trajectory h2 { font-size: 48px; }
 }
@@ -192,11 +287,14 @@
 @media (max-width: 620px) {
   .about-principle h2,
   .about-founder__copy h2,
+  .about-profile__heading h2,
   .about-gallery__intro h2,
   .about-trajectory h2 { font-size: 38px; }
   .about-founder__image-wrap img { min-height: 440px; }
   .about-founder__headline,
   .about-founder blockquote { font-size: 24px; }
+  .about-profile__value strong { font-size: 54px; }
+  .about-profile__facts { grid-template-columns: 1fr; }
   .about-gallery__item { grid-column: 1 / -1; }
   .about-gallery__item img { min-height: 250px; }
   .about-trajectory li { grid-template-columns: 74px 1fr; gap: 14px; }

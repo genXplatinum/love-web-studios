@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
+import Seo from './Seo';
 import { useLenis } from './SmoothScroll';
 import { ScrollTrigger } from '../lib/gsap';
 import './Layout.css';
@@ -24,6 +25,7 @@ export default function Layout() {
 
   return (
     <>
+      <Seo pathname={location.pathname} />
       <a href="#main" className="skip-link">Skip to content</a>
 
       {isHome && (

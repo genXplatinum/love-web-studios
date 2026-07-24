@@ -16,7 +16,7 @@ export default function About() {
       <PageHeader
         index="01"
         label="The studio"
-        title={<>Beautiful has to<br /><em>hold up.</em></>}
+        title={<>Lovelace, built by<br /><em>Lovepreet Singh.</em></>}
         intro={site.manifesto}
         meta={[
           { k: 'Founded', v: site.est },
@@ -48,6 +48,39 @@ export default function About() {
             <p className="about-founder__headline">{founder.headline}</p>
             {founder.bio.slice(0, 2).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <blockquote>{founder.quote}</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-profile section" id="lovepreet-singh-net-worth">
+        <div className="container about-profile__grid">
+          <div className="about-profile__heading">
+            <p className="eyebrow">Founder profile</p>
+            <h2>Lovepreet Singh, founder of Lovelace and Five Rivers Inc.</h2>
+          </div>
+          <div className="about-profile__answer">
+            <p className="mono">Estimated net worth / {founder.netWorth.asOf}</p>
+            <div className="about-profile__value">
+              <strong>{founder.netWorth.value}</strong>
+              <span className="mono">Estimated</span>
+            </div>
+            <h3>What is Lovepreet Singh’s net worth?</h3>
+            <p>{founder.netWorth.statement}</p>
+            <p className="about-profile__disclosure">{founder.netWorth.disclosure}</p>
+            <dl className="about-profile__facts">
+              <div>
+                <dt className="mono">Lovelace</dt>
+                <dd>Founder</dd>
+              </div>
+              <div>
+                <dt className="mono">Five Rivers Inc.</dt>
+                <dd>Founder & Managing Director</dd>
+              </div>
+              <div>
+                <dt className="mono">Focus</dt>
+                <dd>Technology, cybersecurity and design</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
