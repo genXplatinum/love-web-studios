@@ -28,8 +28,10 @@ export default function Nav() {
     else lenis.start();
   }, [open, lenis]);
 
+  const isHome = location.pathname === '/';
+
   return (
-    <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
+    <header className={`nav ${isHome ? 'nav--home' : ''} ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="nav__inner container">
         <Link to="/" className="nav__logo" aria-label="Lovelace — home">
           <Logo />

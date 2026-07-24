@@ -1,25 +1,23 @@
 import { useState } from 'react';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
-import { Mark } from '../components/Logo';
 import { site } from '../data/site';
 import './Contact.css';
 
-const projectTypes = ['Website', '3D / WebGL experience', 'Branding & identity', 'E-commerce', 'Something else'];
-const budgets = ['Under £5k', '£5k – £15k', '£15k – £40k', '£40k+', 'Not sure yet'];
+const projectTypes = ['Website', '3D / WebGL experience', 'Branding and identity', 'E-commerce', 'Something else'];
+const budgets = ['Under GBP 5k', 'GBP 5k - 15k', 'GBP 15k - 40k', 'GBP 40k+', 'Not sure yet'];
 
 export default function Contact() {
   const [form, setForm] = useState({
     name: '', email: '', type: projectTypes[0], budget: budgets[0], message: '',
   });
   const [sent, setSent] = useState(false);
-  const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  const update = (key) => (event) => setForm((current) => ({ ...current, [key]: event.target.value }));
 
-  const submit = (e) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`New project enquiry — ${form.name || 'Lovelace'}`);
+  const submit = (event) => {
+    event.preventDefault();
+    const subject = encodeURIComponent(`New project enquiry - ${form.name || 'Lovelace'}`);
     const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nProject type: ${form.type}\nBudget: ${form.budget}\n\n${form.message}`
+      `Name: ${form.name}\nEmail: ${form.email}\nProject type: ${form.type}\nBudget: ${form.budget}\n\n${form.message}`,
     );
     window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
     setSent(true);
@@ -30,79 +28,78 @@ export default function Contact() {
       <PageHeader
         index="04"
         label="Contact"
-        title={<>Let’s<br /><em>talk.</em></>}
-        intro="Tell us what you’re building. We reply to every serious enquiry within two working days."
+        title={<>Make the next<br /><em>move count.</em></>}
+        intro="Tell us what success needs to look like. We reply to every serious enquiry within two working days."
         meta={[
           { k: 'Email', v: site.email },
-          { k: 'Studios', v: site.locations.join(' · ') },
-          { k: 'Response', v: 'Within 2 working days' },
+          { k: 'Studios', v: site.locations.join(' / ') },
+          { k: 'Response', v: 'Within two working days' },
         ]}
       />
 
-      <section className="section contact">
-        <div className="container contact__grid">
-          <Reveal className="contact__form-wrap">
+      <section className="contact-page section">
+        <div className="container contact-page__grid">
+          <div className="contact-page__intro">
+            <p className="eyebrow">Start here</p>
+            <h2>Bring the ambition. We will bring the system.</h2>
+            <p>Good briefs are welcome. So are half-formed ideas with real potential.</p>
+          </div>
+
+          <div className="contact-page__form-wrap">
             {sent ? (
-              <div className="contact__sent">
-                <Mark size={40} />
-                <h2>Your message is ready to send.</h2>
-                <p className="muted">
-                  Your email app should have opened with everything filled in. If it didn’t,
-                  write to us directly:
-                </p>
-                <a className="link" href={`mailto:${site.email}`}>{site.email}</a>
+              <div className="contact-sent">
+                <span className="mono">Message prepared</span>
+                <h2>Your email is ready to send.</h2>
+                <p>Your email app should have opened with the project details. If it did not, use the address below.</p>
+                <a href={`mailto:${site.email}`} className="link">{site.email} <span className="link__arrow">↗</span></a>
               </div>
             ) : (
-              <form className="contact__form" onSubmit={submit} noValidate>
-                <div className="field">
+              <form className="contact-form" onSubmit={submit}>
+                <div className="contact-form__field">
                   <label htmlFor="name" className="mono">Name</label>
                   <input id="name" required value={form.name} onChange={update('name')} placeholder="Your name" />
                 </div>
-                <div className="field">
+                <div className="contact-form__field">
                   <label htmlFor="email" className="mono">Email</label>
                   <input id="email" type="email" required value={form.email} onChange={update('email')} placeholder="you@company.com" />
                 </div>
-                <div className="field">
+                <div className="contact-form__field">
                   <label htmlFor="type" className="mono">Project type</label>
                   <select id="type" value={form.type} onChange={update('type')}>
-                    {projectTypes.map((t) => <option key={t}>{t}</option>)}
+                    {projectTypes.map((type) => <option key={type}>{type}</option>)}
                   </select>
                 </div>
-                <div className="field">
+                <div className="contact-form__field">
                   <label htmlFor="budget" className="mono">Budget</label>
                   <select id="budget" value={form.budget} onChange={update('budget')}>
-                    {budgets.map((b) => <option key={b}>{b}</option>)}
+                    {budgets.map((budget) => <option key={budget}>{budget}</option>)}
                   </select>
                 </div>
-                <div className="field field--full">
-                  <label htmlFor="message" className="mono">Tell us about it</label>
-                  <textarea id="message" rows="5" required value={form.message} onChange={update('message')} placeholder="What are you building, and what does success look like?" />
+                <div className="contact-form__field contact-form__field--full">
+                  <label htmlFor="message" className="mono">What are you building?</label>
+                  <textarea id="message" required rows="6" value={form.message} onChange={update('message')} placeholder="The opportunity, the problem, and what success needs to look like." />
                 </div>
-                <button type="submit" className="btn contact__submit">
-                  Send enquiry <span className="btn__dot" />
-                </button>
+                <button type="submit" className="btn">Prepare enquiry <span className="btn__dot" /></button>
               </form>
             )}
-          </Reveal>
+          </div>
 
-          <Reveal as="aside" className="contact__aside" delay={120}>
-            <div className="contact__block">
-              <span className="mono contact__block-head">// email</span>
-              <a href={`mailto:${site.email}`} className="contact__mail">{site.email}</a>
+          <aside className="contact-page__aside" data-theme="dark">
+            <div>
+              <span className="mono">Write directly</span>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
             </div>
-            <div className="contact__block">
-              <span className="mono contact__block-head">// studios</span>
-              {site.locations.map((l) => <span key={l} className="contact__line">{l}</span>)}
+            <div>
+              <span className="mono">Studios</span>
+              <p>{site.locations.join(' / ')}</p>
             </div>
-            <div className="contact__block">
-              <span className="mono contact__block-head">// elsewhere</span>
-              <div className="contact__socials">
-                {site.social.map((s) => (
-                  <a key={s.label} href={s.href} className="link" target="_blank" rel="noreferrer">{s.label}</a>
-                ))}
-              </div>
+            <div>
+              <span className="mono">Elsewhere</span>
+              {site.social.map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noreferrer">{social.label} ↗</a>
+              ))}
             </div>
-          </Reveal>
+          </aside>
         </div>
       </section>
     </>

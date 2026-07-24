@@ -1,197 +1,102 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
-import Avatar from '../components/Avatar';
-import Interstitial from '../components/Interstitial';
-import { Mark } from '../components/Logo';
-import FounderGallery from '../components/FounderGallery';
-import { site, founder, projects } from '../data/site';
+import { founder, founderGallery, site } from '../data/site';
 import './About.css';
 
 const timeline = [
-  { k: 'Age 6', t: 'Wrote his first lines of code.' },
-  { k: 'Age 10', t: 'Designed and shipped his first website.' },
-  { k: 'Age 15', t: 'Founded Five River Solutions.' },
-  { k: 'Today', t: 'Founder & MD of Five Rivers Inc. and founder of three startups — leading Lovelace across London, Dubai and India.' },
+  ['Age 6', 'Wrote his first lines of code.'],
+  ['Age 10', 'Designed and shipped his first website.'],
+  ['Age 15', 'Founded Five River Solutions.'],
+  ['Today', 'Leads Lovelace across London, Dubai, and India.'],
 ];
 
-const disclosures = ['Twitter', 'Facebook', 'Apple', 'PayPal', 'MIT', 'Harvard'];
-
-function Mark2({ label }) {
-  return (
-    <div className="section-mark">
-      <span className="mono"><span className="mono--signal">·</span> &nbsp;/&nbsp; {label}</span>
-      <span className="mono">{site.short}</span>
-    </div>
-  );
-}
-
 export default function About() {
-  useEffect(() => {
-    const prevTitle = document.title;
-    const meta = document.querySelector('meta[name="description"]');
-    const prevDesc = meta ? meta.getAttribute('content') : null;
-    document.title = 'Lovepreet Singh — Founder & MD, Five Rivers Inc. | Lovelace';
-    if (meta) {
-      meta.setAttribute(
-        'content',
-        'Lovepreet Singh — serial entrepreneur, Founder & Managing Director of Five Rivers Inc., and one of the world’s top 100 ethical hackers. His story, ventures, net worth and recognition.'
-      );
-    }
-    return () => {
-      document.title = prevTitle;
-      if (meta && prevDesc != null) meta.setAttribute('content', prevDesc);
-    };
-  }, []);
-
   return (
     <>
       <PageHeader
         index="01"
         label="The studio"
-        title={<>Design with an<br /><em>engineer’s</em> instinct.</>}
+        title={<>Beautiful has to<br /><em>hold up.</em></>}
         intro={site.manifesto}
         meta={[
-          { k: 'Founded', v: '2024' },
-          { k: 'Studios', v: site.locations.join(' · ') },
-          { k: 'Focus', v: 'Design engineered for trust' },
+          { k: 'Founded', v: site.est },
+          { k: 'Studios', v: site.locations.join(' / ') },
+          { k: 'Principle', v: 'Creative instinct, technical rigour' },
         ]}
       />
 
-      {/* Philosophy */}
-      <section className="section ab-intro">
-        <div className="container ab-intro__grid">
-          <Reveal as="h2" className="ab-intro__lead">
-            We make websites the way a security team would: nothing assumed, nothing left exposed.
-          </Reveal>
-          <div className="ab-intro__body">
-            <Reveal as="p" delay={80}>
-              Lovelace began with a simple observation — the prettiest websites are often
-              the most fragile. Slow, bloated, quietly insecure. We build the opposite.
-            </Reveal>
-            <Reveal as="p" delay={160}>
-              Design and engineering happen in the same room. We draw every interface by hand,
-              build it to perform, and harden it before it ships. The result looks effortless and
-              behaves like it was built to last — because it was.
-            </Reveal>
+      <section className="about-principle section" data-theme="dark">
+        <div className="container about-principle__grid">
+          <p className="eyebrow">The premise</p>
+          <h2>Most websites are either impressive or dependable. They should be both.</h2>
+          <p>
+            Lovelace brings design and engineering into the same room, so each decision is
+            beautiful on the surface and resilient beneath it.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-founder section">
+        <div className="container about-founder__grid">
+          <div className="about-founder__image-wrap">
+            <img src={founder.photo} alt={founder.name} />
+            <span className="mono">{founder.role}</span>
+          </div>
+          <div className="about-founder__copy">
+            <p className="eyebrow">Founder</p>
+            <h2>{founder.name}</h2>
+            <p className="about-founder__headline">{founder.headline}</p>
+            {founder.bio.slice(0, 2).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <blockquote>{founder.quote}</blockquote>
           </div>
         </div>
       </section>
 
-      <Interstitial word="Trust." align="right" note="// Security is the foundation, not an afterthought." />
-
-      {/* Founder */}
-      <section className="section ab-founder">
+      <section className="about-gallery section">
         <div className="container">
-          <Mark2 label="The founder" />
-          <div className="ab-founder__grid">
-            <Reveal className="ab-founder__avatar" variant="fade">
-              <Avatar initials="LS" label="Lovepreet Singh" photo={founder.photo} />
-            </Reveal>
-            <div className="ab-founder__content">
-              <Reveal as="span" className="eyebrow">{founder.role}</Reveal>
-              <Reveal as="h2" className="ab-founder__name" delay={60}>{founder.name}</Reveal>
-              {founder.bio.map((para, i) => (
-                <Reveal as="p" className="ab-founder__bio muted" delay={120 + i * 60} key={i}>
-                  {para}
-                </Reveal>
-              ))}
-            </div>
+          <div className="section-mark">
+            <span className="mono"><span className="mono--signal">02</span> / In the room</span>
+            <span className="mono">The work behind the work</span>
           </div>
-
-          <Reveal as="blockquote" className="ab-quote" delay={80}>
-            <Mark size={24} />
-            <p>{founder.quote}</p>
-            <cite className="mono">— {founder.name}, {founder.role}</cite>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* In the room — founder credibility gallery */}
-      <section className="section ab-room">
-        <div className="container">
-          <Mark2 label="In the room" />
-          <Reveal as="h2" className="ab-room__title">
-            From boardrooms to government — trusted where it counts.
-          </Reveal>
-          <Reveal as="p" className="ab-room__sub muted" delay={80}>
-            Beyond the studio, Lovepreet advises leadership teams, briefs government bodies and
-            builds partnerships across continents — the same rigour that goes into every build.
-          </Reveal>
-          <FounderGallery />
-        </div>
-      </section>
-
-      {/* Selected work */}
-      <section className="section ab-work">
-        <div className="container">
-          <Mark2 label="Selected work" />
-          <Reveal as="h2" className="ab-work__title">
-            Recent builds from the studio.
-          </Reveal>
-          <div className="ab-work__grid">
-            {projects.slice(0, 3).map((p, i) => (
-              <Reveal key={p.id} className="ab-work__card" delay={i * 80}>
-                <Link to="/work" className="ab-work__link" data-cursor style={{ '--accent': p.accent }}>
-                  <span className="ab-work__cat mono">{p.category}</span>
-                  <h3 className="ab-work__name">{p.title}</h3>
-                  <p className="ab-work__blurb muted">{p.blurb}</p>
-                  <span className="ab-work__view mono">View work ↗</span>
-                </Link>
-              </Reveal>
-            ))}
+          <div className="about-gallery__intro">
+            <h2>Trusted in the conversations where decisions get made.</h2>
+            <p className="lead">The same directness and technical rigour carry from the room into every client build.</p>
           </div>
-          <Reveal className="ab-work__all" delay={120}>
-            <Link to="/work" className="btn btn--ghost">All projects <span className="btn__dot" /></Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Responsible disclosure */}
-      <section className="section ab-disc" data-theme="dark">
-        <div className="container">
-          <Reveal as="span" className="eyebrow">Responsible disclosure</Reveal>
-          <Reveal as="h2" className="ab-disc__title" delay={60}>Trusted to find what others miss.</Reveal>
-          <Reveal as="p" className="ab-disc__sub" delay={120}>
-            Ranked among the world’s top 100 ethical hackers, with vulnerabilities reported
-            responsibly to some of the biggest names on the internet:
-          </Reveal>
-          <Reveal className="ab-disc__chips" delay={180}>
-            {disclosures.map((d) => (
-              <span key={d} className="ab-disc__chip mono">{d}</span>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="section ab-time">
-        <div className="container">
-          <Mark2 label="The path" />
-          <div className="ab-time__grid">
-            {timeline.map((m, i) => (
-              <Reveal className="ab-time__item" key={m.k} delay={i * 70}>
-                <span className="ab-time__k mono mono--signal">{m.k}</span>
-                <p className="ab-time__t">{m.t}</p>
-              </Reveal>
+          <div className="about-gallery__grid">
+            {founderGallery.map((image, index) => (
+              <figure className={`about-gallery__item about-gallery__item--${index + 1}`} key={image.src}>
+                <img src={image.src} alt={image.caption} loading="lazy" />
+                <figcaption className="mono">{image.caption}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Recognition */}
-      <section className="section ab-awards">
-        <div className="container">
-          <Mark2 label="Recognition" />
-          <div className="ab-awards__grid">
-            {founder.awards.map((a) => (
-              <Reveal className="ab-award" key={a}>
-                <Mark size={15} />
-                <span>{a}</span>
-              </Reveal>
-            ))}
+      <section className="about-trajectory section">
+        <div className="container about-trajectory__grid">
+          <div>
+            <p className="eyebrow">The trajectory</p>
+            <h2>A builder's instinct, shaped over time.</h2>
           </div>
+          <ol>
+            {timeline.map(([key, value]) => (
+              <li key={key}>
+                <span className="mono">{key}</span>
+                <p>{value}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="about-recognition section">
+        <div className="container">
+          <p className="eyebrow">Recognition</p>
+          <div className="about-recognition__grid">
+            {founder.awards.map((award) => <span key={award}>{award}</span>)}
+          </div>
+          <Link to="/contact" className="btn">Work with Lovelace <span className="btn__dot" /></Link>
         </div>
       </section>
     </>

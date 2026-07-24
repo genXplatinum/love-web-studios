@@ -33,15 +33,15 @@ export default function Loader({ onComplete }) {
 
     tl.to(counter, {
       v: 100,
-      duration: 1.5,
+      duration: 1.1,
       ease: 'power2.inOut',
       onUpdate: () => {
         if (num.current) num.current.textContent = String(Math.round(counter.v)).padStart(3, '0');
       },
     });
-    tl.fromTo('.loader__bar-fill', { scaleX: 0 }, { scaleX: 1, duration: 1.5, ease: 'power2.inOut' }, 0);
-    tl.to('.loader__inner', { autoAlpha: 0, duration: 0.45, ease: 'power2.in' }, '+=0.15');
-    tl.to(root.current, { yPercent: -100, duration: 0.95, ease: 'expo.inOut' }, '-=0.1');
+    tl.fromTo('.loader__bar-fill', { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: 'power2.inOut' }, 0);
+    tl.to('.loader__inner', { autoAlpha: 0, duration: 0.3, ease: 'power2.in' }, '+=0.1');
+    tl.to(root.current, { yPercent: -100, duration: 0.65, ease: 'expo.inOut' }, '-=0.05');
 
     return () => tl.kill();
   }, []);

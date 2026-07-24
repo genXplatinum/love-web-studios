@@ -36,7 +36,7 @@ export default function Layout() {
 
       <Nav />
 
-      <main id="main" key={location.pathname} className="page">
+      <main id="main" key={location.pathname} className={`page ${isHome ? 'page--home' : ''}`}>
         <Outlet />
       </main>
 

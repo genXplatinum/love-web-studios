@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
-import Interstitial from '../components/Interstitial';
-import { Mark } from '../components/Logo';
 import { services } from '../data/site';
 import './Services.css';
 
@@ -11,53 +8,55 @@ export default function Services() {
     <>
       <PageHeader
         index="03"
-        label="Services"
-        title={<>What we<br /><em>do.</em></>}
-        intro="Four disciplines, one studio. We design and engineer the whole thing in-house — so nothing gets lost between the brief and the browser."
+        label="Capabilities"
+        title={<>The whole<br /><em>signal.</em></>}
+        intro="Four complementary disciplines. One experienced team, moving from the initial thought to the live result without a handoff gap."
         meta={[
-          { k: 'Disciplines', v: 'Design · Engineering · Brand · Growth' },
-          { k: 'Engagements', v: 'Projects & retainers' },
-          { k: 'Approach', v: 'In-house, end to end' },
+          { k: 'Disciplines', v: 'Strategy, identity, product, growth' },
+          { k: 'Engagements', v: 'Projects and retained partnerships' },
+          { k: 'Approach', v: 'Collaborative and in-house' },
         ]}
       />
 
-      <Interstitial word="In-house." note="// Design and engineering under one roof." />
-
-      <section className="section services">
+      <section className="services-page section">
         <div className="container">
-          {services.map((s) => (
-            <Reveal key={s.id} className="svc" variant="up">
-              <span className="svc__idx mono">{s.index}</span>
-              <div className="svc__main">
-                <h2 className="svc__title">{s.title}</h2>
-                <p className="svc__summary lead">{s.summary}</p>
-                <div className="svc__cols">
-                  <div className="svc__block">
-                    <span className="mono svc__block-head">// what’s included</span>
-                    <ul className="svc__points">
-                      {s.points.map((p) => (
-                        <li key={p}><Mark size={12} /> {p}</li>
-                      ))}
+          <div className="services-page__intro">
+            <p className="eyebrow">What is included</p>
+            <h2>Use the parts you need. Keep the entire experience coherent.</h2>
+          </div>
+
+          <div className="services-page__list">
+            {services.map((service) => (
+              <article className="service-detail" key={service.id}>
+                <div className="service-detail__number mono">{service.index}</div>
+                <div className="service-detail__main">
+                  <span className="mono">{service.short}</span>
+                  <h2>{service.title}</h2>
+                  <p className="lead">{service.summary}</p>
+                </div>
+                <div className="service-detail__scope">
+                  <div>
+                    <span className="mono">Included</span>
+                    <ul>
+                      {service.points.map((point) => <li key={point}>{point}</li>)}
                     </ul>
                   </div>
-                  <div className="svc__block">
-                    <span className="mono svc__block-head">// deliverables</span>
-                    <div className="svc__tags">
-                      {s.deliverables.map((d) => (
-                        <span key={d} className="svc__tag mono">{d}</span>
-                      ))}
+                  <div>
+                    <span className="mono">Typical outcomes</span>
+                    <div className="service-detail__tags">
+                      {service.deliverables.map((deliverable) => <span key={deliverable}>{deliverable}</span>)}
                     </div>
                   </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </article>
+            ))}
+          </div>
 
-          <Reveal className="svc__cta">
-            <span className="eyebrow">Not sure where to start?</span>
-            <h2 className="svc__cta-title">Tell us the problem. We’ll scope the build.</h2>
+          <div className="services-page__close" data-theme="dark">
+            <p className="eyebrow">Not sure where to begin?</p>
+            <h2>Tell us the problem. We will define the right build.</h2>
             <Link to="/contact" className="btn">Start a project <span className="btn__dot" /></Link>
-          </Reveal>
+          </div>
         </div>
       </section>
     </>

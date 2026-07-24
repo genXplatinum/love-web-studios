@@ -1,226 +1,236 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Reveal from '../components/Reveal';
-import Avatar from '../components/Avatar';
-import Interstitial from '../components/Interstitial';
-import CohortMock from '../components/CohortCard';
-import PetvetMock from '../components/PetvetCard';
-import { Mark } from '../components/Logo';
-import {
-  site,
-  services,
-  projects,
-  process,
-  stats,
-  founder,
-  capabilities,
-} from '../data/site';
+import { founder, process, projects, services, site } from '../data/site';
 import './Home.css';
 
-function SectionHead({ index, label, title }) {
+function useTilt() {
+  const ref = useRef(null);
+
+  const onPointerMove = (event) => {
+    if (event.pointerType === 'touch' || !ref.current) return;
+    const box = ref.current.getBoundingClientRect();
+    const x = (event.clientX - box.left) / box.width - 0.5;
+    const y = (event.clientY - box.top) / box.height - 0.5;
+    ref.current.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
+    ref.current.style.setProperty('--tilt-y', `${(x * 7).toFixed(2)}deg`);
+    ref.current.style.setProperty('--lift-x', `${(x * 12).toFixed(1)}px`);
+    ref.current.style.setProperty('--lift-y', `${(y * 12).toFixed(1)}px`);
+  };
+
+  const onPointerLeave = () => {
+    if (!ref.current) return;
+    ref.current.style.setProperty('--tilt-x', '0deg');
+    ref.current.style.setProperty('--tilt-y', '0deg');
+    ref.current.style.setProperty('--lift-x', '0px');
+    ref.current.style.setProperty('--lift-y', '0px');
+  };
+
+  return { ref, onPointerMove, onPointerLeave };
+}
+
+function ProjectTile({ project }) {
+  const tilt = useTilt();
+  const isPetvet = project.id === 'petvet';
+  const isDigithrive = project.id === 'digithrive';
+
   return (
-    <div className="section-mark">
-      <span className="mono">
-        <span className="mono--signal">{index}</span> &nbsp;/&nbsp; {label}
-      </span>
-      <span className="mono">{site.short}</span>
-    </div>
+    <Link
+      to="/work"
+      className={`project-tile project-tile--${project.id}`}
+      {...tilt}
+      data-cursor
+    >
+      <div className="project-tile__surface">
+        <div className="project-tile__meta mono">
+          <span>{project.index} / Featured work</span>
+          <span>{project.year}</span>
+        </div>
+
+        {isPetvet && (
+          <div className="project-tile__petvet-art" aria-hidden="true">
+            <span>Care</span>
+            <span>comes home.</span>
+            <i />
+          </div>
+        )}
+
+        {isDigithrive && (
+          <div className="project-tile__crm-art" aria-hidden="true">
+            <div><span>Fees</span><b>72%</b></div>
+            <div><span>Leads</span><b>28%</b></div>
+            <div><span>Attendance</span><b>15 / 20</b></div>
+          </div>
+        )}
+
+        {!isPetvet && !isDigithrive && (
+          <div className="project-tile__number" aria-hidden="true">{project.index}</div>
+        )}
+      </div>
+      <div className="project-tile__copy">
+        <div>
+          <span className="mono">{project.category}</span>
+          <h3>{project.title}</h3>
+        </div>
+        <span className="project-tile__arrow" aria-hidden="true">↗</span>
+      </div>
+      <p>{project.blurb}</p>
+    </Link>
   );
 }
 
 export default function Home() {
+  const hero = useTilt();
+
   return (
     <>
-      {/* ---------------- HERO ---------------- */}
-      <section className="hero">
+      <section className="hero" data-theme="dark" {...hero}>
         <div className="container hero__inner">
-          <div className="hero__top">
-            <span className="mono">{site.name} — {site.tagline}</span>
-            <span className="mono hide-sm">{site.locations.join('  ·  ')}</span>
+          <div className="hero__rail mono">
+            <span>Independent design and engineering studio</span>
+            <span>{site.locations.join(' / ')}</span>
           </div>
 
-          <h1 className="hero__title">
-            <span className="line"><span>Design,</span></span>
-            <span className="line"><span className="hero__title-alt"><em>engineered.</em></span></span>
-          </h1>
-
-          <div className="hero__foot">
-            <p className="hero__lead">
-              Beautiful on the surface, engineered underneath. {site.short} is a design studio led
-              by a top-100 ethical hacker — we build websites, brands and 3D experiences that are
-              as resilient as they are beautiful.
+          <div className="hero__content">
+            <p className="hero__eyebrow">Designed to be chosen.</p>
+            <h1>Lovelace</h1>
+            <p className="hero__intro">
+              A design and engineering studio for businesses ready to look sharper,
+              move faster, and earn more trust.
             </p>
-            <div className="hero__cta">
+            <div className="hero__actions">
               <Link to="/contact" className="btn">
                 Start a project <span className="btn__dot" />
               </Link>
-              <Link to="/work" className="link">
-                See the work <span className="link__arrow">↗</span>
+              <Link to="/work" className="hero__work-link">
+                Explore selected work <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>
+
+          <div className="hero__notes" aria-hidden="true">
+            <span>01 / Signal</span>
+            <span>02 / Story</span>
+            <span>03 / System</span>
+          </div>
         </div>
 
-        <div className="hero__scroll mono">
-          <span>Scroll to explore</span>
-          <span className="hero__scroll-arrow">↓</span>
-        </div>
+        <a className="hero__scroll mono" href="#positioning">
+          <span>Enter the studio</span>
+          <span aria-hidden="true">↓</span>
+        </a>
       </section>
 
-      {/* Everything below scrolls over the fixed canvas */}
-      <div className="home__body">
-        {/* ---------------- MARQUEE ---------------- */}
-        <div className="marquee" aria-hidden="true">
-          <div className="marquee__track">
-            {[...capabilities, ...capabilities].map((c, i) => (
-              <span className="marquee__item" key={i}>
-                {c}
-                <span className="marquee__sep" />
-              </span>
+      <div className="home__surface">
+        <section id="positioning" className="positioning section">
+          <div className="container positioning__grid">
+            <p className="eyebrow">The useful difference</p>
+            <h2>
+              Make the work feel as valuable as it really is.
+            </h2>
+            <div className="positioning__body">
+              <p className="lead">
+                You are already doing the hard part. We make the value obvious before
+                a prospect opens a proposal, compares a price, or asks a question.
+              </p>
+              <Link to="/about" className="link">Why Lovelace <span className="link__arrow">↗</span></Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="signal-strip" aria-label="Lovelace capabilities">
+          <div className="signal-strip__track">
+            {[...services, ...services].map((service, index) => (
+              <span key={`${service.id}-${index}`}>{service.short}</span>
             ))}
           </div>
-        </div>
-
-        {/* ---------------- MANIFESTO ---------------- */}
-        <section className="section manifesto">
-          <div className="container">
-            <Reveal as="p" variant="up" className="manifesto__text">
-              We’re a design studio with a security team’s instincts. Every site is
-              <span className="manifesto__hl"> drawn by hand</span>, built to perform, and
-              <span className="manifesto__hl"> hardened before it ships</span> — so it looks
-              effortless and refuses to break.
-            </Reveal>
-            <div className="manifesto__meta">
-              <Reveal className="mono" delay={120}>// est. {site.est} · {site.locations.join(' · ')}</Reveal>
-              <Reveal delay={200}>
-                <Link to="/about" className="link">The studio story <span className="link__arrow">↗</span></Link>
-              </Reveal>
-            </div>
-          </div>
         </section>
 
-        <Interstitial word="Precision." note="// Every detail measured before anything ships." />
-
-        {/* ---------------- SERVICES ---------------- */}
-        <section className="section services-preview">
+        <section className="capabilities section">
           <div className="container">
-            <SectionHead index="01" label="Capabilities" />
-            <div className="sp__list">
-              {services.map((s, i) => (
-                <Reveal key={s.id} delay={i * 60}>
-                  <Link to="/services" className="sp__row" data-cursor>
-                    <span className="sp__idx mono">{s.index}</span>
-                    <span className="sp__title">{s.title}</span>
-                    <span className="sp__short muted">{s.short}</span>
-                    <span className="sp__arrow">↗</span>
-                  </Link>
-                </Reveal>
+            <div className="section-mark">
+              <span className="mono"><span className="mono--signal">01</span> / Capabilities</span>
+              <span className="mono">One studio, one standard</span>
+            </div>
+            <div className="capabilities__intro">
+              <h2>One clear system from first impression to final click.</h2>
+              <p className="lead">Strategy, identity, digital product, and growth move together here.</p>
+            </div>
+            <div className="capabilities__list">
+              {services.map((service) => (
+                <Link to="/services" className="capability" key={service.id} data-cursor>
+                  <span className="mono">{service.index}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.summary}</p>
+                  <span className="capability__arrow" aria-hidden="true">↗</span>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ---------------- SELECTED WORK ---------------- */}
-        <section className="section work-preview">
+        <section className="home-work section" data-theme="dark">
           <div className="container">
-            <SectionHead index="02" label="Selected work" />
-            <div className="wp__grid">
-              {projects.slice(0, 4).map((p, i) => (
-                <Reveal key={p.id} delay={(i % 2) * 80} className="wp__item">
-                  <Link to="/work" className="wp__link" data-cursor>
-                    {p.visual === 'cohort' || p.visual === 'petvet' ? (
-                      <div className={`wp__visual wp__visual--${p.visual}`} style={{ '--accent': p.accent }}>
-                        <span className="wp__cat mono">{p.category}</span>
-                        {p.visual === 'cohort' ? <CohortMock /> : <PetvetMock />}
-                        <span className="wp__view mono">View case ↗</span>
-                      </div>
-                    ) : (
-                      <div className="wp__visual" style={{ '--accent': p.accent }}>
-                        <span className="wp__num">{p.index}</span>
-                        <span className="wp__cat mono">{p.category}</span>
-                        <span className="wp__view mono">View case ↗</span>
-                      </div>
-                    )}
-                    <div className="wp__meta">
-                      <h3 className="wp__title">{p.title}</h3>
-                      <span className="wp__year mono">{p.year}</span>
-                    </div>
-                    <p className="wp__blurb muted">{p.blurb}</p>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className="wp__all" delay={120}>
-              <Link to="/work" className="btn btn--ghost">
-                All projects <span className="btn__dot" />
-              </Link>
-            </Reveal>
-          </div>
-        </section>
-
-        <Interstitial word="Craft." align="right" note="// Drawn by hand. Built by engineers — never templated." />
-
-        {/* ---------------- PROCESS ---------------- */}
-        <section className="section process">
-          <div className="container">
-            <SectionHead index="03" label="How we work" />
-            <div className="proc__intro">
-              <Reveal as="h2" variant="up">
-                We treat your website like a system to be secured, not a page to be decorated.
-              </Reveal>
-            </div>
-            <div className="proc__grid">
-              {process.map((step, i) => (
-                <Reveal key={step.step} className="proc__item" delay={i * 70}>
-                  <span className="proc__step mono">{step.step}</span>
-                  <h3 className="proc__title">{step.title}</h3>
-                  <p className="proc__body muted">{step.body}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ---------------- STATS ---------------- */}
-        <section className="section stats" data-theme="dark">
-          <div className="container">
-            <div className="stats__grid">
-              {stats.map((s, i) => (
-                <Reveal key={i} className="stat" delay={i * 80}>
-                  <span className="stat__value">{s.value}</span>
-                  <span className="stat__label">{s.label}</span>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <Interstitial word="Resilience." note="// Built to look effortless and refuse to break." />
-
-        {/* ---------------- FOUNDER TEASER ---------------- */}
-        <section className="section founder-teaser">
-          <div className="container">
-            <SectionHead index="04" label="The founder" />
-            <div className="ft__inner">
-              <Reveal className="ft__avatar" variant="fade">
-                <Avatar initials="LS" label="founder" photo={founder.photo} />
-              </Reveal>
-              <div className="ft__content">
-                <Reveal as="span" className="eyebrow">{founder.role}</Reveal>
-                <Reveal as="h2" className="ft__name" delay={60}>{founder.name}</Reveal>
-                <Reveal as="p" className="ft__head lead" delay={120}>{founder.headline}</Reveal>
-                <Reveal as="p" className="ft__bio muted" delay={180}>{founder.bio[0]}</Reveal>
-                <Reveal className="ft__creds" delay={240}>
-                  {founder.awards.slice(0, 4).map((a) => (
-                    <span key={a} className="ft__cred mono"><Mark size={13} /> {a}</span>
-                  ))}
-                </Reveal>
-                <Reveal delay={300}>
-                  <Link to="/about" className="btn">
-                    Read the studio story <span className="btn__dot" />
-                  </Link>
-                </Reveal>
+            <div className="home-work__top">
+              <div>
+                <p className="eyebrow">Selected work</p>
+                <h2>Built for the moment somebody decides.</h2>
               </div>
+              <Link to="/work" className="link">All projects <span className="link__arrow">↗</span></Link>
             </div>
+            <div className="home-work__grid">
+              {projects.slice(0, 2).map((project) => <ProjectTile key={project.id} project={project} />)}
+            </div>
+          </div>
+        </section>
+
+        <section className="method section">
+          <div className="container method__grid">
+            <div className="method__headline">
+              <p className="eyebrow">How it holds up</p>
+              <h2>Beautiful is expected. Resilient is the advantage.</h2>
+            </div>
+            <div className="method__steps">
+              {process.map((step) => (
+                <article className="method-step" key={step.step}>
+                  <span className="mono">{step.step}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="founder-band section">
+          <div className="container founder-band__grid">
+            <div className="founder-band__photo-wrap">
+              <img src={founder.photo} alt={founder.name} className="founder-band__photo" />
+              <span className="mono founder-band__photo-note">Founder / Managing Director</span>
+            </div>
+            <div className="founder-band__copy">
+              <p className="eyebrow">The thinking behind the build</p>
+              <h2>Creative instinct. Engineering discipline.</h2>
+              <p className="lead">
+                Lovelace is led by an engineer, so the experience gets the imagination
+                it deserves and the rigour it needs.
+              </p>
+              <Link to="/about" className="btn btn--ghost">
+                Meet the studio <span className="btn__dot" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="home-close section" data-theme="dark">
+          <div className="container home-close__inner">
+            <p className="eyebrow">Your next version</p>
+            <h2>It should arrive with force.</h2>
+            <p>Tell us what success needs to look like. We will help you make it real.</p>
+            <Link to="/contact" className="btn">
+              Start the conversation <span className="btn__dot" />
+            </Link>
           </div>
         </section>
       </div>

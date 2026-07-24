@@ -24,7 +24,7 @@
   gap: 1rem;
 }
 .loader__num {
-  font-size: clamp(1.9rem, 7vw, 2.8rem);
+  font-size: 42px;
   color: var(--ink);
   letter-spacing: 0;
   text-transform: none;
@@ -40,3 +40,9 @@
   transform-origin: left;
 }
 .loader__sub { align-self: flex-start; }
+
+@media (max-width: 620px) {
+  .loader__num {
+    font-size: 34px;
+  }
+}
