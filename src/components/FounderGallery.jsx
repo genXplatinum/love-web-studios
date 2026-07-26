@@ -19,7 +19,7 @@ function Tile({ src, caption }) {
   );
 }
 
-/** Masonry gallery of the founder "in the room" — credibility shots. */
+/** Masonry gallery of the founder in meetings and at events. */
 export default function FounderGallery() {
   if (!founderGallery?.length) return null;
   return (

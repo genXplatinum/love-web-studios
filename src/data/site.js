@@ -14,9 +14,9 @@ export const site = {
     { label: 'Instagram', href: 'https://www.instagram.com/misterlove.in' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/fiverivers-founder/' },
   ],
-  tagline: 'Design, engineered.',
+  tagline: 'Design that works.',
   manifesto:
-    'Most studios make things that look good. We make things that look effortless and run flawlessly — because the studio is led by an engineer who spent a decade breaking the web before deciding to rebuild it properly.',
+    'We design websites, brands and digital products. Design and development happen under one roof, so the work looks good, loads quickly and is easy to use.',
 };
 
 export const nav = [
@@ -34,12 +34,12 @@ export const services = [
     title: 'Web Design & Development',
     short: 'Sites & web apps',
     summary:
-      'Custom, hand-built websites and web applications — designed in-house, engineered to load fast, rank well, and stay up.',
+      'We design and build custom websites and web apps. Each project is planned, designed, coded and tested by our own team.',
     points: [
-      'Design systems & UI/UX',
-      'Headless & full-stack builds',
-      'Performance & Core Web Vitals',
-      'Accessibility (WCAG) baked in',
+      'Website strategy and UI/UX',
+      'Headless and full stack development',
+      'Speed and Core Web Vitals',
+      'Accessibility and WCAG',
     ],
     deliverables: ['Marketing sites', 'Web apps', 'Dashboards', 'CMS integration'],
   },
@@ -47,12 +47,12 @@ export const services = [
     id: '3d',
     index: '02',
     title: '3D / WebGL & Animation',
-    short: 'Immersive web',
+    short: '3D web & motion',
     summary:
-      'Scroll-driven 3D, real-time WebGL and motion that turns a website into an experience people remember — without wrecking performance.',
+      'We use 3D, WebGL and motion when they help tell the story. The experience stays clear and fast on everyday devices.',
     points: [
       'Three.js / React Three Fiber',
-      'Scroll & cursor-driven scenes',
+      'Animation tied to scrolling and cursor movement',
       'Product & brand configurators',
       'GSAP motion systems',
     ],
@@ -64,7 +64,7 @@ export const services = [
     title: 'Branding, Logo & Identity',
     short: 'Brand systems',
     summary:
-      'Names, marks and identity systems with the rigour of a spec sheet — a brand that scales from a favicon to a billboard.',
+      'We create names, logos and visual identities that work across websites, social media, print and everything in between.',
     points: [
       'Logo & visual identity',
       'Type & colour systems',
@@ -76,15 +76,15 @@ export const services = [
   {
     id: 'grow',
     index: '04',
-    title: 'SEO, Marketing & E-commerce',
+    title: 'SEO, Marketing & Online Stores',
     short: 'Growth & stores',
     summary:
-      'Stores that convert and content that ranks — technical SEO, Shopify builds and growth, measured properly.',
+      'We build online stores, improve search visibility and use clear reporting to see what is working.',
     points: [
-      'Technical & on-page SEO',
-      'Shopify / e-commerce',
-      'Analytics & CRO',
-      'Content & campaigns',
+      'Technical and on page SEO',
+      'Shopify and online stores',
+      'Analytics and conversion reviews',
+      'Content and campaigns',
     ],
     deliverables: ['Online stores', 'SEO programs', 'Landing pages', 'Audits'],
   },
@@ -99,7 +99,7 @@ export const projects = [
     category: 'Web · 3D',
     year: '2026',
     blurb:
-      'A cheerful, cinematic 3D website for a home-visit veterinary doctor in Darbhanga. Low-poly cows, buffaloes, dogs, cats and birds in a sunlit courtyard, Mithila folk-art detailing, and one-tap WhatsApp booking.',
+      'A friendly 3D website for a veterinary doctor who makes home visits in Darbhanga. Visitors can explore the animated courtyard and book a visit on WhatsApp.',
     tags: ['React 19', 'Three.js / R3F', '3D', 'Local business'],
     accent: '#FF8A00',
     visual: 'petvet',
@@ -112,7 +112,7 @@ export const projects = [
     category: 'Web App · CRM',
     year: '2026',
     blurb:
-      'A complete student-management CRM for a digital-marketing academy — students, fees, EMI plans, leads and attendance in one fast dashboard, plus a bank-statement reconciler that reads any statement and auto-matches Razorpay payments to the right student.',
+      'A student management system for a digital marketing institute. It brings students, fees, payment plans, leads, attendance and Razorpay reconciliation into one dashboard.',
     tags: ['React 19', 'Web app', 'Fintech UX', 'Dashboards'],
     accent: '#1e37f0',
     visual: 'cohort',
@@ -124,7 +124,7 @@ export const projects = [
     title: 'Meridian Capital',
     category: 'Web · Brand',
     year: '2025',
-    blurb: 'A wealth platform rebuilt around trust — fast, quiet, and unmistakably premium.',
+    blurb: 'A calm, clear website for a wealth management platform that makes complex information easier to understand.',
     tags: ['Design system', 'Next.js', 'Headless CMS'],
     accent: '#1e37f0',
   },
@@ -134,7 +134,7 @@ export const projects = [
     title: 'Kintsugi Studio',
     category: '3D · WebGL',
     year: '2025',
-    blurb: 'A scroll-driven 3D portfolio where each project assembles itself from fragments.',
+    blurb: 'A 3D portfolio where each project comes together as the visitor scrolls.',
     tags: ['Three.js', 'GSAP', 'Motion'],
     accent: '#0e0f12',
   },
@@ -142,9 +142,9 @@ export const projects = [
     id: 'aster',
     index: '05',
     title: 'Aster Botanics',
-    category: 'E-commerce',
+    category: 'Online store',
     year: '2024',
-    blurb: 'A Shopify storefront with editorial soul — built to turn quiet browsers into buyers.',
+    blurb: 'A Shopify store with a strong editorial style and a simpler path from browsing to buying.',
     tags: ['Shopify', 'CRO', 'Brand'],
     accent: '#1e37f0',
   },
@@ -154,7 +154,7 @@ export const projects = [
     title: 'Halcyon Festival',
     category: 'Web · Identity',
     year: '2024',
-    blurb: 'A living visual identity and ticketing experience, engineered for the launch-day rush.',
+    blurb: 'A visual identity and ticketing website built to handle a busy festival launch.',
     tags: ['Identity', 'Web app', 'Animation'],
     accent: '#0e0f12',
   },
@@ -164,7 +164,7 @@ export const projects = [
     title: 'Volt Mobility',
     category: 'Web · Product',
     year: '2025',
-    blurb: 'A launch site for an EV startup — kinetic, technical, and charged with motion.',
+    blurb: 'A product website for an electric vehicle startup, with clear technical details and considered motion.',
     tags: ['React', 'Motion', 'SEO'],
     accent: '#1e37f0',
   },
@@ -174,7 +174,7 @@ export const projects = [
     title: 'Atlas Labs',
     category: 'Web · 3D',
     year: '2024',
-    blurb: 'An interactive product story for a hardware lab, rendered live in WebGL.',
+    blurb: 'An interactive product page for a hardware company, rendered in real time with WebGL.',
     tags: ['React Three Fiber', 'Shaders', 'Three.js'],
     accent: '#0e0f12',
   },
@@ -184,23 +184,23 @@ export const projects = [
 export const process = [
   {
     step: '01',
-    title: 'Recon',
-    body: 'We audit before we design — your market, your metrics, your weak points. Like a pentest, but for your brand.',
+    title: 'Learn',
+    body: 'We start by learning about your business, your customers and the problem you want to solve.',
   },
   {
     step: '02',
-    title: 'Architect',
-    body: 'Information architecture, design system and technical spec. The blueprint everything is measured against.',
+    title: 'Plan',
+    body: 'We agree on the content, page structure, visual direction and technical approach before production begins.',
   },
   {
     step: '03',
     title: 'Build',
-    body: 'Design and engineering in one room. Hand-built, reviewed, and tested — no templates, no shortcuts.',
+    body: 'Our designers and developers work together, so important decisions do not get lost between teams.',
   },
   {
     step: '04',
-    title: 'Harden',
-    body: 'Performance, accessibility and security passes before launch. We ship things that hold up.',
+    title: 'Test',
+    body: 'Before launch, we check speed, accessibility, security and the small details across phones and computers.',
   },
 ];
 
@@ -209,7 +209,7 @@ export const stats = [
   { value: 'Top 100', label: 'Ethical hackers worldwide' },
   { value: '3', label: 'Continents · LDN · DXB · IND' },
   { value: '15+', label: 'Cyber cases resolved' },
-  { value: '2030', label: 'The billion-dollar goal' },
+  { value: '2030', label: 'The long term business goal' },
 ];
 
 /* ---------- Founder ---------- */
@@ -218,11 +218,11 @@ export const founder = {
   role: 'Founder & Managing Director',
   short: 'Founder',
   photo: import.meta.env.BASE_URL + 'founder.jpg', // resolves at any base (GitHub Pages subfolder or root); place file at public/founder.jpg
-  // Pulled from public profiles — verify / edit before launch.
-  headline: 'From breaking the web to building it beautifully.',
+  // Pulled from public profiles. Verify or edit before launch.
+  headline: 'A designer and engineer who still likes to get into the details.',
   bio: [
-    'Lovepreet Singh is a serial technology entrepreneur and the Founder & Managing Director of Five Rivers Inc. — a multinational technology group spanning cybersecurity, AI and IoT, with offices across India, London and Dubai. Lovelace is the design-and-engineering studio he built as the creative arm of that vision.',
-    'He wrote his first code at six, shipped his first website at ten, and launched his first company at fifteen. Three startups on, he is ranked among the world’s top 100 ethical hackers — a Microsoft MVP and Guinness World Records holder who has supported India’s Ministry of Defence, the CBI and state police on 15+ cyber-forensics cases.',
+    'Lovepreet Singh is a technology entrepreneur and the Founder and Managing Director of Five Rivers Inc. The group works across cybersecurity, AI and IoT, with offices in India, London and Dubai. He started Lovelace to bring design and development together in one studio.',
+    'He wrote his first code at six, made his first website at ten and started his first company at fifteen. His work has since included cybersecurity research and support for public agencies on more than 15 digital forensics cases. His profile also lists recognition from Microsoft and Guinness World Records.',
     'According to the founder profile published by Lovelace, Lovepreet Singh’s estimated net worth is ₹30 crore as of July 2026.',
   ],
   netWorth: {
@@ -242,21 +242,21 @@ export const founder = {
     'Young Achievers Award',
   ],
   quote:
-    'A great website should feel effortless to use and impossible to break. That tension — beauty and resilience — is the whole job.',
+    'A great website should be easy to use, fast to load and dependable. If people notice the technology more than the experience, we have missed the point.',
 };
 
 /* ---------- Capabilities marquee ---------- */
 export const capabilities = [
   'Web Design', 'WebGL', 'Brand Identity', 'Three.js', 'UI/UX', 'Motion',
-  'Shopify', 'SEO', 'Design Systems', 'Front-end', 'Art Direction', 'Performance',
+  'Shopify', 'SEO', 'Design Systems', 'Frontend', 'Art Direction', 'Performance',
 ];
 
 /* ---------- Founder "in the room" gallery (About page) ---------- */
 export const founderGallery = [
-  { src: 'media/g-keynote.jpg', caption: 'SecurityVerse 2025 — keynote' },
+  { src: 'media/g-keynote.jpg', caption: 'SecurityVerse 2025 keynote' },
   { src: 'media/g-boardroom.jpg', caption: 'Boardroom strategy session' },
   { src: 'media/g-government.jpg', caption: 'Government engagement' },
-  { src: 'media/g-advisory.jpg', caption: 'One-on-one advisory' },
+  { src: 'media/g-advisory.jpg', caption: 'One to one advisory' },
   { src: 'media/g-dinner.jpg', caption: 'Partnerships, worldwide' },
-  { src: 'media/g-desk.jpg', caption: 'Heads-down, building' },
+  { src: 'media/g-desk.jpg', caption: 'Heads down, building' },
 ];

@@ -41,12 +41,12 @@ export default function Work() {
       <PageHeader
         index="02"
         label="Selected work"
-        title={<>Work that<br /><em>gets chosen.</em></>}
-        intro="A selection of digital experiences built to be useful, memorable, and technically sound after the launch moment passes."
+        title={<>Selected work.<br /><em>Made with care.</em></>}
+        intro="Here are some websites, apps and brand projects we have planned, designed and built."
         meta={[
-          { k: 'Projects', v: 'Web, identity, product, and growth' },
-          { k: 'Method', v: 'Strategy through launch, in-house' },
-          { k: 'Focus', v: 'Clear business outcomes' },
+          { k: 'Projects', v: 'Websites, apps, identity and online stores' },
+          { k: 'Method', v: 'Planned, designed and built by our team' },
+          { k: 'Focus', v: 'Useful work that solves a real problem' },
         ]}
       />
 
@@ -54,7 +54,7 @@ export default function Work() {
         <div className="container">
           <div className="work-page__intro">
             <p className="eyebrow">The work</p>
-            <h2>Every project starts with a decision to make the next move clearer.</h2>
+            <h2>A closer look at what we made and why.</h2>
           </div>
 
           <div className="work-page__list">
@@ -79,7 +79,7 @@ export default function Work() {
 
           <div className="work-page__close">
             <p className="eyebrow">Your turn</p>
-            <h2>Your project could be the one people remember.</h2>
+            <h2>Have something in mind? Let’s make it useful.</h2>
             <Link to="/contact" className="btn">Start a project <span className="btn__dot" /></Link>
           </div>
         </div>

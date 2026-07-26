@@ -86,16 +86,16 @@ export default function Home() {
       <section className="hero" data-theme="dark" {...hero}>
         <div className="container hero__inner">
           <div className="hero__rail mono">
-            <span>Independent design and engineering studio</span>
+            <span>Independent web and brand studio</span>
             <span>{site.locations.join(' / ')}</span>
           </div>
 
           <div className="hero__content">
-            <p className="hero__eyebrow">Designed to be chosen.</p>
+            <p className="hero__eyebrow">Websites people understand and remember.</p>
             <h1>Lovelace</h1>
             <p className="hero__intro">
-              A design and engineering studio for businesses ready to look sharper,
-              move faster, and earn more trust.
+              We design and build websites, brands and digital products for businesses
+              that care about how they look and how they work.
             </p>
             <div className="hero__actions">
               <Link to="/contact" className="btn">
@@ -108,9 +108,9 @@ export default function Home() {
           </div>
 
           <div className="hero__notes" aria-hidden="true">
-            <span>01 / Signal</span>
-            <span>02 / Story</span>
-            <span>03 / System</span>
+            <span>01 / Plan</span>
+            <span>02 / Design</span>
+            <span>03 / Build</span>
           </div>
         </div>
 
@@ -123,14 +123,14 @@ export default function Home() {
       <div className="home__surface">
         <section id="positioning" className="positioning section">
           <div className="container positioning__grid">
-            <p className="eyebrow">The useful difference</p>
+            <p className="eyebrow">What we help with</p>
             <h2>
-              Make the work feel as valuable as it really is.
+              Show people what makes your business worth choosing.
             </h2>
             <div className="positioning__body">
               <p className="lead">
-                You are already doing the hard part. We make the value obvious before
-                a prospect opens a proposal, compares a price, or asks a question.
+                You already know your business. We turn that knowledge into a clear story,
+                a useful website and a brand people can remember.
               </p>
               <Link to="/about" className="link">Why Lovelace <span className="link__arrow">↗</span></Link>
             </div>
@@ -149,11 +149,11 @@ export default function Home() {
           <div className="container">
             <div className="section-mark">
               <span className="mono"><span className="mono--signal">01</span> / Capabilities</span>
-              <span className="mono">One studio, one standard</span>
+              <span className="mono">All work handled by our team</span>
             </div>
             <div className="capabilities__intro">
-              <h2>One clear system from first impression to final click.</h2>
-              <p className="lead">Strategy, identity, digital product, and growth move together here.</p>
+              <h2>Everything your website needs, handled by the same team.</h2>
+              <p className="lead">We take care of design, development, content and growth.</p>
             </div>
             <div className="capabilities__list">
               {services.map((service) => (
@@ -173,7 +173,7 @@ export default function Home() {
             <div className="home-work__top">
               <div>
                 <p className="eyebrow">Selected work</p>
-                <h2>Built for the moment somebody decides.</h2>
+                <h2>A few things we have made.</h2>
               </div>
               <Link to="/work" className="link">All projects <span className="link__arrow">↗</span></Link>
             </div>
@@ -186,8 +186,8 @@ export default function Home() {
         <section className="method section">
           <div className="container method__grid">
             <div className="method__headline">
-              <p className="eyebrow">How it holds up</p>
-              <h2>Beautiful is expected. Resilient is the advantage.</h2>
+              <p className="eyebrow">How we work</p>
+              <h2>Good design matters. So does everything behind it.</h2>
             </div>
             <div className="method__steps">
               {process.map((step) => (
@@ -210,11 +210,11 @@ export default function Home() {
               <span className="mono founder-band__photo-note">Founder / Managing Director</span>
             </div>
             <div className="founder-band__copy">
-              <p className="eyebrow">The thinking behind the build</p>
-              <h2>Creative instinct. Engineering discipline.</h2>
+              <p className="eyebrow">Meet the founder</p>
+              <h2>Lovepreet Singh</h2>
               <p className="lead">
-                Lovelace is led by founder Lovepreet Singh, so the experience gets the
-                imagination it deserves and the engineering rigour it needs.
+                Lovepreet stays involved in the design and technical work, from the first
+                conversation to the final review.
               </p>
               <Link to="/about" className="btn btn--ghost">
                 Meet Lovepreet Singh <span className="btn__dot" />
@@ -225,9 +225,9 @@ export default function Home() {
 
         <section className="home-close section" data-theme="dark">
           <div className="container home-close__inner">
-            <p className="eyebrow">Your next version</p>
-            <h2>It should arrive with force.</h2>
-            <p>Tell us what success needs to look like. We will help you make it real.</p>
+            <p className="eyebrow">Have a project in mind?</p>
+            <h2>Let’s talk about it.</h2>
+            <p>Tell us what you are planning and where you need help.</p>
             <Link to="/contact" className="btn">
               Start the conversation <span className="btn__dot" />
             </Link>

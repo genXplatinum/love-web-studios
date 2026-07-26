@@ -1,5 +1,5 @@
 /**
- * Lovelace brand mark — an inspector "reticle" (viewfinder + signal dot).
+ * Lovelace brand mark based on a viewfinder and accent dot.
  * Echoes the custom cursor: a studio that inspects before it builds.
  */
 export function Mark({ size = 34, className = '' }) {

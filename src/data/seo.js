@@ -13,29 +13,29 @@ const sharedLinks = [
 export const SEO_ROUTES = [
   {
     path: '/',
-    title: 'Lovelace | Design and Engineering Studio',
+    title: 'Lovelace | Web Design and Development Studio',
     description:
-      'Lovelace is an independent design and engineering studio creating distinctive websites, brand systems, 3D experiences and digital products.',
-    ogTitle: 'Lovelace | Designed to be chosen',
-    imageAlt: 'Lovelace design and engineering studio.',
+      'Lovelace designs and builds websites, web apps, brand identities and 3D web experiences for businesses worldwide.',
+    ogTitle: 'Lovelace | Web Design and Development',
+    imageAlt: 'Lovelace web design and development studio.',
     type: 'website',
     fallback: {
-      eyebrow: 'Independent design and engineering studio',
+      eyebrow: 'Independent web and brand studio',
       heading: 'Lovelace',
       intro:
-        'Distinctive websites, brand systems and immersive digital experiences, designed and engineered in-house.',
+        'We design and build websites, brands and digital products for businesses that care about how they look and how they work.',
       highlights: [
         {
           heading: 'Web design and development',
-          text: 'High-performance websites and web applications shaped around clear business outcomes.',
+          text: 'Fast, accessible websites and web apps planned, designed and built by our own team.',
         },
         {
           heading: '3D, WebGL and motion',
-          text: 'Immersive digital experiences that remain useful, accessible and fast.',
+          text: '3D and motion that help explain a product or make a useful experience more memorable.',
         },
         {
-          heading: 'Brand systems',
-          text: 'Identity, interface and growth systems built to work as one coherent experience.',
+          heading: 'Branding and identity',
+          text: 'Names, logos and visual identities that work across websites, social media and print.',
         },
       ],
       links: sharedLinks,
@@ -45,27 +45,27 @@ export const SEO_ROUTES = [
     path: '/work',
     title: 'Selected Web, Brand and 3D Work | Lovelace',
     description:
-      'Explore selected Lovelace projects across web design, web apps, brand identity, e-commerce and immersive 3D experiences.',
+      'See websites, web apps, brand identity, online store and 3D projects planned, designed and built by Lovelace.',
     ogTitle: 'Selected work by Lovelace',
     imageAlt: 'Selected web, brand and 3D projects by Lovelace.',
     type: 'website',
     fallback: {
       eyebrow: 'Selected work',
-      heading: 'Work that gets chosen',
+      heading: 'Selected work made with care',
       intro:
-        'Digital experiences built to be useful, memorable and technically sound after the launch moment passes.',
+        'A selection of websites, apps and brand projects made for real businesses and practical needs.',
       highlights: [
         {
           heading: 'Petvet Care',
-          text: 'A cinematic 3D website and one-tap booking experience for a home-visit veterinary practice.',
+          text: 'A friendly 3D website with WhatsApp booking for a veterinary doctor who makes home visits.',
         },
         {
           heading: 'Digithrive Institute',
-          text: 'A student-management CRM covering fees, leads, attendance and payment reconciliation.',
+          text: 'A student management system covering fees, leads, attendance and payment reconciliation.',
         },
         {
           heading: 'Web, identity and product',
-          text: 'Selected work spanning strategy, design systems, engineering, e-commerce and motion.',
+          text: 'Selected work across websites, brand identity, online stores, business tools and motion.',
         },
       ],
       links: sharedLinks,
@@ -75,15 +75,15 @@ export const SEO_ROUTES = [
     path: '/services',
     title: 'Web Design, Branding, 3D and SEO Services | Lovelace',
     description:
-      'Lovelace provides web design and development, 3D and WebGL, branding, e-commerce, technical SEO and digital growth services.',
-    ogTitle: 'Design and engineering services by Lovelace',
+      'Lovelace provides web design and development, 3D and WebGL, branding, online stores, technical SEO and digital marketing.',
+    ogTitle: 'Web, brand, 3D and SEO services by Lovelace',
     imageAlt: 'Web design, branding, 3D and SEO services from Lovelace.',
     type: 'website',
     fallback: {
       eyebrow: 'Services',
-      heading: 'The whole signal',
+      heading: 'What we do and how we help',
       intro:
-        'Use the capabilities you need while keeping strategy, design and engineering coherent from first impression to final click.',
+        'Choose one service or ask our team to plan, design and build the full project.',
       highlights: [
         {
           heading: 'Web design and development',
@@ -91,14 +91,14 @@ export const SEO_ROUTES = [
         },
         {
           heading: '3D, WebGL and animation',
-          text: 'Interactive product stories, configurators and scroll-driven digital experiences.',
+          text: 'Interactive product pages, configurators and animation controlled by scrolling.',
         },
         {
           heading: 'Branding and identity',
-          text: 'Logos, type, colour, art direction and identity systems that scale.',
+          text: 'Logos, type, colour, art direction and practical brand guidelines.',
         },
         {
-          heading: 'SEO, marketing and e-commerce',
+          heading: 'SEO, marketing and online stores',
           text: 'Technical SEO, content, Shopify, analytics and conversion optimisation.',
         },
       ],
@@ -117,7 +117,7 @@ export const SEO_ROUTES = [
       eyebrow: 'Studio and founder',
       heading: 'Lovelace, built by Lovepreet Singh',
       intro:
-        'Lovelace brings creative instinct and engineering discipline into one independent design studio.',
+        'Lovelace brings design and development together in one independent studio.',
       highlights: [
         {
           heading: 'Who is Lovepreet Singh?',
@@ -128,8 +128,8 @@ export const SEO_ROUTES = [
           text: 'According to the founder profile published by Lovelace, Lovepreet Singh’s estimated net worth is ₹30 crore as of July 2026. The figure is an estimate, not an audited public financial disclosure.',
         },
         {
-          heading: 'Design backed by engineering',
-          text: 'His work spans technology, cybersecurity, web design and the systems behind resilient digital products.',
+          heading: 'Design and technical work',
+          text: 'His work spans technology, cybersecurity, web design and digital product development.',
         },
       ],
       links: sharedLinks,
@@ -139,22 +139,22 @@ export const SEO_ROUTES = [
     path: '/contact',
     title: 'Start a Web or Brand Project | Contact Lovelace',
     description:
-      'Contact Lovelace to discuss a website, web app, 3D experience, brand identity, e-commerce or technical SEO project.',
+      'Contact Lovelace to discuss a website, web app, 3D experience, brand identity, online store or technical SEO project.',
     ogTitle: 'Start a project with Lovelace',
     imageAlt: 'Start a design and engineering project with Lovelace.',
     type: 'website',
     fallback: {
       eyebrow: 'Contact',
-      heading: 'Make the next move count',
+      heading: 'Tell us about your project',
       intro:
-        'Tell Lovelace what you are building, what needs to change and what success should look like.',
+        'Tell us what you are making, why it matters and where you need help.',
       highlights: [
         {
           heading: 'Start a project',
           text: 'Email lovepreetsinghmk10@gmail.com with your goals, scope and preferred launch date.',
         },
         {
-          heading: 'Worldwide collaboration',
+          heading: 'Where we work',
           text: 'Lovelace works with organisations across London, Dubai, India and beyond.',
         },
       ],
@@ -168,7 +168,7 @@ export const NOT_FOUND_SEO = {
   title: 'Page Not Found | Lovelace',
   description: 'The requested page could not be found.',
   ogTitle: 'Page Not Found | Lovelace',
-  imageAlt: 'Lovelace design and engineering studio.',
+  imageAlt: 'Lovelace web design and development studio.',
   type: 'website',
   noindex: true,
   fallback: {
@@ -208,7 +208,7 @@ const organization = {
   },
   image: DEFAULT_SOCIAL_IMAGE,
   description:
-    'Independent design and engineering studio creating websites, web applications, brand systems and immersive digital experiences.',
+    'Independent studio that designs and builds websites, web apps, brand identities and 3D web experiences.',
   email: 'lovepreetsinghmk10@gmail.com',
   areaServed: 'Worldwide',
   foundingDate: '2024',
@@ -341,7 +341,7 @@ export function structuredDataForPath(pathname) {
           'Web Design and Development',
           '3D, WebGL and Animation',
           'Branding, Logo and Identity',
-          'SEO, Marketing and E-commerce',
+          'SEO, Marketing and Online Stores',
         ].map((name, index) => ({
           '@type': 'ListItem',
           position: index + 1,
@@ -371,8 +371,8 @@ export function structuredDataForPath(pathname) {
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: [
-          ['Petvet Care', 'A cinematic 3D website for a home-visit veterinary practice.'],
-          ['Digithrive Institute', 'A student-management CRM and payment reconciliation platform.'],
+          ['Petvet Care', 'A friendly 3D website for a veterinary doctor who makes home visits.'],
+          ['Digithrive Institute', 'A student management system with payment reconciliation.'],
         ].map(([name, description], index) => ({
           '@type': 'ListItem',
           position: index + 1,

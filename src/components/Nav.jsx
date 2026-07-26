@@ -33,7 +33,7 @@ export default function Nav() {
   return (
     <header className={`nav ${isHome ? 'nav--home' : ''} ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="nav__inner container">
-        <Link to="/" className="nav__logo" aria-label="Lovelace — home">
+        <Link to="/" className="nav__logo" aria-label="Lovelace home">
           <Logo />
         </Link>
 

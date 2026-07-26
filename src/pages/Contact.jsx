@@ -3,8 +3,8 @@ import PageHeader from '../components/PageHeader';
 import { site } from '../data/site';
 import './Contact.css';
 
-const projectTypes = ['Website', '3D / WebGL experience', 'Branding and identity', 'E-commerce', 'Something else'];
-const budgets = ['Under GBP 5k', 'GBP 5k - 15k', 'GBP 15k - 40k', 'GBP 40k+', 'Not sure yet'];
+const projectTypes = ['Website', '3D / WebGL experience', 'Branding and identity', 'Online store', 'Something else'];
+const budgets = ['Under GBP 5k', 'GBP 5k to 15k', 'GBP 15k to 40k', 'GBP 40k+', 'Not sure yet'];
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -15,7 +15,7 @@ export default function Contact() {
 
   const submit = (event) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`New project enquiry - ${form.name || 'Lovelace'}`);
+    const subject = encodeURIComponent(`New project enquiry: ${form.name || 'Lovelace'}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nProject type: ${form.type}\nBudget: ${form.budget}\n\n${form.message}`,
     );
@@ -28,8 +28,8 @@ export default function Contact() {
       <PageHeader
         index="04"
         label="Contact"
-        title={<>Make the next<br /><em>move count.</em></>}
-        intro="Tell us what success needs to look like. We reply to every serious enquiry within two working days."
+        title={<>Tell us about<br /><em>your project.</em></>}
+        intro="Share a few details about what you need. We normally reply within two working days."
         meta={[
           { k: 'Email', v: site.email },
           { k: 'Studios', v: site.locations.join(' / ') },
@@ -41,8 +41,8 @@ export default function Contact() {
         <div className="container contact-page__grid">
           <div className="contact-page__intro">
             <p className="eyebrow">Start here</p>
-            <h2>Bring the ambition. We will bring the system.</h2>
-            <p>Good briefs are welcome. So are half-formed ideas with real potential.</p>
+            <h2>What are you hoping to make?</h2>
+            <p>A clear brief helps, but it is fine if the idea is still taking shape.</p>
           </div>
 
           <div className="contact-page__form-wrap">
@@ -77,7 +77,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-form__field contact-form__field--full">
                   <label htmlFor="message" className="mono">What are you building?</label>
-                  <textarea id="message" required rows="6" value={form.message} onChange={update('message')} placeholder="The opportunity, the problem, and what success needs to look like." />
+                  <textarea id="message" required rows="6" value={form.message} onChange={update('message')} placeholder="Tell us about the idea, the problem and what a good result would look like." />
                 </div>
                 <button type="submit" className="btn">Prepare enquiry <span className="btn__dot" /></button>
               </form>

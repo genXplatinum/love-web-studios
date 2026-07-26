@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Avatar.css';
 
 /**
- * Founder portrait — an inspector-framed photo with a monogram fallback.
+ * Founder portrait with a simple monogram fallback.
  * Pass `photo` (e.g. '/founder.jpg' from the public folder). If the file is
  * missing or fails to load, it falls back to the "LS" monogram automatically.
  */
@@ -26,7 +26,7 @@ export default function Avatar({ initials = 'LS', label = 'founder', photo, size
         )}
         <span className={`avatar__tag mono ${showPhoto ? 'on-photo' : ''}`}>{`// ${label}`}</span>
         {!showPhoto && <span className="avatar__initials">{initials}</span>}
-        {!showPhoto && <span className="avatar__swap mono">portrait — swap in real photo</span>}
+        {!showPhoto && <span className="avatar__swap mono">Founder portrait placeholder</span>}
       </div>
     </div>
   );

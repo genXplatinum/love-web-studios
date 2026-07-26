@@ -4,7 +4,7 @@ import './Interstitial.css';
 
 /**
  * Fills the space between sections with a giant, faded outline word that
- * drifts on scroll and fills with the signal colour on hover — plus a short,
+ * drifts on scroll and fills with the accent colour on hover. A short
  * useful statement. Turns dead whitespace into a quiet brand beat.
  */
 export default function Interstitial({ word, note, align = 'left' }) {

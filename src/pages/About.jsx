@@ -21,17 +21,17 @@ export default function About() {
         meta={[
           { k: 'Founded', v: site.est },
           { k: 'Studios', v: site.locations.join(' / ') },
-          { k: 'Principle', v: 'Creative instinct, technical rigour' },
+          { k: 'Approach', v: 'Design and development together' },
         ]}
       />
 
       <section className="about-principle section" data-theme="dark">
         <div className="container about-principle__grid">
-          <p className="eyebrow">The premise</p>
-          <h2>Most websites are either impressive or dependable. They should be both.</h2>
+          <p className="eyebrow">What matters to us</p>
+          <h2>A website should look good and work well. We do both.</h2>
           <p>
-            Lovelace brings design and engineering into the same room, so each decision is
-            beautiful on the surface and resilient beneath it.
+            Our designers and developers work together from the first sketch to launch.
+            That keeps the idea clear and avoids costly handovers.
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function About() {
         <div className="container about-profile__grid">
           <div className="about-profile__heading">
             <p className="eyebrow">Founder profile</p>
-            <h2>Lovepreet Singh, founder of Lovelace and Five Rivers Inc.</h2>
+            <h2>Lovepreet Singh founded Lovelace and Five Rivers Inc.</h2>
           </div>
           <div className="about-profile__answer">
             <p className="mono">Estimated net worth / {founder.netWorth.asOf}</p>
@@ -88,12 +88,12 @@ export default function About() {
       <section className="about-gallery section">
         <div className="container">
           <div className="section-mark">
-            <span className="mono"><span className="mono--signal">02</span> / In the room</span>
-            <span className="mono">The work behind the work</span>
+            <span className="mono"><span className="mono--signal">02</span> / Working together</span>
+            <span className="mono">Meetings and project discussions</span>
           </div>
           <div className="about-gallery__intro">
-            <h2>Trusted in the conversations where decisions get made.</h2>
-            <p className="lead">The same directness and technical rigour carry from the room into every client build.</p>
+            <h2>Good work starts with honest conversations.</h2>
+            <p className="lead">We stay close to the people making the decisions and keep the process clear.</p>
           </div>
           <div className="about-gallery__grid">
             {founderGallery.map((image, index) => (
@@ -109,8 +109,8 @@ export default function About() {
       <section className="about-trajectory section">
         <div className="container about-trajectory__grid">
           <div>
-            <p className="eyebrow">The trajectory</p>
-            <h2>A builder's instinct, shaped over time.</h2>
+            <p className="eyebrow">A short timeline</p>
+            <h2>He started early and kept building.</h2>
           </div>
           <ol>
             {timeline.map(([key, value]) => (

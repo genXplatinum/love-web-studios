@@ -4,8 +4,7 @@ import { Mark } from './Logo';
 import './Loader.css';
 
 /**
- * First-load intro: a count from 000 to 100 and a signal bar, then the
- * panel lifts away to reveal the hero. Respects reduced-motion.
+ * Loading intro with a count and progress bar.
  */
 export default function Loader({ onComplete }) {
   const root = useRef(null);
@@ -57,7 +56,7 @@ export default function Loader({ onComplete }) {
           <span ref={num} className="loader__num mono">000</span>
         </div>
         <div className="loader__bar"><span className="loader__bar-fill" /></div>
-        <span className="mono loader__sub">Initialising studio · design, engineered</span>
+        <span className="mono loader__sub">Loading the Lovelace studio</span>
       </div>
     </div>
   );

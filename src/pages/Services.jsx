@@ -8,13 +8,13 @@ export default function Services() {
     <>
       <PageHeader
         index="03"
-        label="Capabilities"
-        title={<>The whole<br /><em>signal.</em></>}
-        intro="Four complementary disciplines. One experienced team, moving from the initial thought to the live result without a handoff gap."
+        label="Services"
+        title={<>What we do.<br /><em>How we help.</em></>}
+        intro="We can handle one part of a project or take it from the first conversation through to launch."
         meta={[
-          { k: 'Disciplines', v: 'Strategy, identity, product, growth' },
-          { k: 'Engagements', v: 'Projects and retained partnerships' },
-          { k: 'Approach', v: 'Collaborative and in-house' },
+          { k: 'Services', v: 'Web, brand, 3D, SEO and online stores' },
+          { k: 'Work', v: 'Projects and ongoing support' },
+          { k: 'Team', v: 'Handled by our own designers and developers' },
         ]}
       />
 
@@ -22,7 +22,7 @@ export default function Services() {
         <div className="container">
           <div className="services-page__intro">
             <p className="eyebrow">What is included</p>
-            <h2>Use the parts you need. Keep the entire experience coherent.</h2>
+            <h2>Choose one service or ask us to handle the full project.</h2>
           </div>
 
           <div className="services-page__list">
@@ -54,7 +54,7 @@ export default function Services() {
 
           <div className="services-page__close" data-theme="dark">
             <p className="eyebrow">Not sure where to begin?</p>
-            <h2>Tell us the problem. We will define the right build.</h2>
+            <h2>Tell us what you need. We will help you plan it.</h2>
             <Link to="/contact" className="btn">Start a project <span className="btn__dot" /></Link>
           </div>
         </div>

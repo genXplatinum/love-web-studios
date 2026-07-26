@@ -35,7 +35,7 @@
 }
 .fgal__fig:hover .fgal__cap { opacity: 1; transform: none; }
 
-/* Touch devices can't hover — keep captions visible */
+/* Keep captions visible on touch devices. */
 @media (hover: none) {
   .fgal__cap { opacity: 1; transform: none; }
 }

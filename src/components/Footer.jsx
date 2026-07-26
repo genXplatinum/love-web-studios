@@ -18,9 +18,9 @@ export default function Footer() {
       <div className="container">
         {/* CTA */}
         <div className="footer__cta">
-          <span className="eyebrow">Start a project</span>
+          <span className="eyebrow">Have a project in mind?</span>
           <h2 className="footer__cta-title">
-            Let’s build something <span className="italic">worth trusting.</span>
+            Let’s talk <span className="italic">about it.</span>
           </h2>
           <a href={`mailto:${site.email}`} className="footer__mail" data-cursor>
             {site.email}
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="footer__brand">
             <Mark size={32} />
             <p className="footer__tag">
-              {site.short} — a design studio that builds the web with an engineer’s precision.
+              {site.short} designs and builds websites, web apps and brand identities.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export default function Footer() {
         {/* Colophon */}
         <div className="footer__colophon">
           <span className="mono">© {year} {site.name}</span>
-          <span className="mono footer__colophon-mid">Designed &amp; engineered in-house · 51.5074° N</span>
+          <span className="mono footer__colophon-mid">Designed and built by Lovelace · 51.5074° N</span>
           <button className="link footer__top" onClick={toTop}>
             Back to top
             <span className="link__arrow">↑</span>
