@@ -56,6 +56,10 @@ export const SEO_ROUTES = [
         'A selection of websites, apps and brand projects made for real businesses and practical needs.',
       highlights: [
         {
+          heading: 'Purani Dhun',
+          text: 'A music site for 369 old Hindi and Punjabi records, where every song draws its own rangoli.',
+        },
+        {
           heading: 'Petvet Care',
           text: 'A friendly 3D website with WhatsApp booking for a veterinary doctor who makes home visits.',
         },
@@ -371,6 +375,7 @@ export function structuredDataForPath(pathname) {
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: [
+          ['Purani Dhun', 'A music site for 369 old Hindi and Punjabi records, where every song draws its own rangoli.'],
           ['Petvet Care', 'A friendly 3D website for a veterinary doctor who makes home visits.'],
           ['Digithrive Institute', 'A student management system with payment reconciliation.'],
         ].map(([name, description], index) => ({

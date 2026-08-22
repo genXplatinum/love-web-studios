@@ -1,9 +1,20 @@
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+import RangoliCard from '../components/RangoliCard';
 import { projects } from '../data/site';
 import './Work.css';
 
 function ProjectVisual({ project }) {
+  /* Purani Dhun gets a drawing rather than a headline, because a
+     drawing is what the site itself is made of. */
+  if (project.id === 'purani-dhun') {
+    return (
+      <div className="work-art work-art--purani">
+        <RangoliCard />
+      </div>
+    );
+  }
+
   if (project.id === 'petvet') {
     return (
       <div className="work-art work-art--petvet" aria-hidden="true">
@@ -71,7 +82,20 @@ export default function Work() {
                   <div className="work-case__tags">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  <span className="work-case__category">{project.category}</span>
+                  <div className="work-case__foot">
+                    <span className="work-case__category">{project.category}</span>
+                    {project.live && (
+                      <a
+                        className="work-case__live"
+                        href={project.live.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cursor
+                      >
+                        {project.live.label} <span aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}

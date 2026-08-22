@@ -263,6 +263,35 @@
   color: var(--paper);
 }
 
+.project-tile__body {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+/* The newest build takes the whole width and turns on its side, so the
+   card has room to be looked at rather than glanced past. */
+.project-tile--feature {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 46px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-tile--feature .project-tile__surface {
+  min-height: 500px;
+}
+
+.project-tile--feature .project-tile__body {
+  align-content: center;
+  gap: 20px;
+}
+
+.project-tile--feature .project-tile__copy h3 {
+  font-size: 54px;
+}
+
 .project-tile__surface {
   position: relative;
   min-height: 380px;
@@ -274,6 +303,12 @@
 
 .project-tile:hover .project-tile__surface {
   box-shadow: 0 28px 48px rgba(0, 0, 0, 0.34);
+}
+
+/* the board Purani Dhun is drawn on, so the meta line reads as ink */
+.project-tile--purani-dhun .project-tile__surface {
+  background: #e4e2dc;
+  color: #191c1a;
 }
 
 .project-tile--petvet .project-tile__surface {
@@ -391,10 +426,28 @@
   transform: translate(4px, -4px);
 }
 
-.project-tile > p {
+.project-tile__body p {
   max-width: 58ch;
   color: rgba(255, 255, 255, 0.66);
   font-size: 16px;
+}
+
+.project-tile--feature .project-tile__body p {
+  font-size: 18px;
+}
+
+/* the address, for the builds that are actually online */
+.project-tile__live {
+  justify-self: start;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+  color: var(--paper);
+  transition: border-color 200ms var(--ease), color 200ms var(--ease);
+}
+
+.project-tile:hover .project-tile__live {
+  border-color: var(--acid);
+  color: var(--acid);
 }
 
 .method__grid {
@@ -561,6 +614,18 @@
   .capability p { display: none; }
   .capability h3 { font-size: 28px; }
   .home-work__top { align-items: start; flex-direction: column; }
+
+  .project-tile--feature {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 0;
+  }
+
+  .project-tile--feature .project-tile__surface { min-height: 430px; }
+  .project-tile--feature .project-tile__body { gap: 14px; }
+  .project-tile--feature .project-tile__copy h3 { font-size: 44px; }
+  .project-tile--feature .project-tile__body p { font-size: 16px; }
+
   .method__headline { position: static; }
   .method__grid { gap: 58px; }
   .founder-band__grid { gap: 46px; }
@@ -599,6 +664,8 @@
   .capability h3 { font-size: 23px; }
   .home-work__grid { grid-template-columns: 1fr; }
   .project-tile__surface { min-height: 310px; }
+  .project-tile--feature .project-tile__surface { min-height: 340px; }
+  .project-tile--feature .project-tile__copy h3 { font-size: 30px; }
   .project-tile__petvet-art { padding: 40px 28px; font-size: 48px; }
   .project-tile__petvet-art i { top: 42px; right: 34px; width: 90px; height: 90px; border-width: 7px; }
   .project-tile__crm-art { right: 18px; bottom: 18px; left: 18px; padding: 12px; gap: 6px; }

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import RangoliCard from '../components/RangoliCard';
 import { founder, process, projects, services, site } from '../data/site';
 import './Home.css';
 
@@ -28,15 +29,16 @@ function useTilt() {
   return { ref, onPointerMove, onPointerLeave };
 }
 
-function ProjectTile({ project }) {
+function ProjectTile({ project, feature = false }) {
   const tilt = useTilt();
+  const isPurani = project.id === 'purani-dhun';
   const isPetvet = project.id === 'petvet';
   const isDigithrive = project.id === 'digithrive';
 
   return (
     <Link
       to="/work"
-      className={`project-tile project-tile--${project.id}`}
+      className={`project-tile project-tile--${project.id}${feature ? ' project-tile--feature' : ''}`}
       {...tilt}
       data-cursor
     >
@@ -45,6 +47,10 @@ function ProjectTile({ project }) {
           <span>{project.index} / Featured work</span>
           <span>{project.year}</span>
         </div>
+
+        {/* a drawing, not a headline — the only project here whose
+            interface is one */}
+        {isPurani && <RangoliCard />}
 
         {isPetvet && (
           <div className="project-tile__petvet-art" aria-hidden="true">
@@ -62,18 +68,23 @@ function ProjectTile({ project }) {
           </div>
         )}
 
-        {!isPetvet && !isDigithrive && (
+        {!isPurani && !isPetvet && !isDigithrive && (
           <div className="project-tile__number" aria-hidden="true">{project.index}</div>
         )}
       </div>
-      <div className="project-tile__copy">
-        <div>
-          <span className="mono">{project.category}</span>
-          <h3>{project.title}</h3>
+      <div className="project-tile__body">
+        <div className="project-tile__copy">
+          <div>
+            <span className="mono">{project.category}</span>
+            <h3>{project.title}</h3>
+          </div>
+          <span className="project-tile__arrow" aria-hidden="true">↗</span>
         </div>
-        <span className="project-tile__arrow" aria-hidden="true">↗</span>
+        <p>{project.blurb}</p>
+        {project.live && (
+          <span className="project-tile__live mono">{project.live.label}</span>
+        )}
       </div>
-      <p>{project.blurb}</p>
     </Link>
   );
 }
@@ -178,7 +189,11 @@ export default function Home() {
               <Link to="/work" className="link">All projects <span className="link__arrow">↗</span></Link>
             </div>
             <div className="home-work__grid">
-              {projects.slice(0, 2).map((project) => <ProjectTile key={project.id} project={project} />)}
+              {/* the newest build leads, across the full width; the two
+                  before it sit under it as a pair */}
+              {projects.slice(0, 3).map((project, index) => (
+                <ProjectTile key={project.id} project={project} feature={index === 0} />
+              ))}
             </div>
           </div>
         </section>

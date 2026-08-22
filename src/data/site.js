@@ -90,11 +90,25 @@ export const services = [
   },
 ];
 
-/* ---------- Selected work (Petvet Care & Digithrive are real, shipped builds; the rest are samples) ---------- */
+/* ---------- Selected work (Purani Dhun, Petvet Care & Digithrive are real, shipped builds; the rest are samples) ---------- */
 export const projects = [
   {
-    id: 'petvet',
+    id: 'purani-dhun',
     index: '01',
+    title: 'Purani Dhun',
+    category: 'Web · Generative',
+    year: '2026',
+    blurb:
+      'A listening room for 369 old Hindi and Punjabi records, sorted into nine rooms. There is not one photograph on the site: each song draws its own rangoli, and the rings turn while the record plays.',
+    tags: ['Generative SVG', 'Vanilla JS', 'YouTube API', 'Devanagari type'],
+    accent: '#00887c',
+    visual: 'rangoli',
+    live: { label: 'puranidhun.in', href: 'https://puranidhun.in' },
+    note: 'Featured build · 2026',
+  },
+  {
+    id: 'petvet',
+    index: '02',
     title: 'Petvet Care',
     category: 'Web · 3D',
     year: '2026',
@@ -107,7 +121,7 @@ export const projects = [
   },
   {
     id: 'digithrive',
-    index: '02',
+    index: '03',
     title: 'Digithrive Institute',
     category: 'Web App · CRM',
     year: '2026',
@@ -120,7 +134,7 @@ export const projects = [
   },
   {
     id: 'meridian',
-    index: '03',
+    index: '04',
     title: 'Meridian Capital',
     category: 'Web · Brand',
     year: '2025',
@@ -130,7 +144,7 @@ export const projects = [
   },
   {
     id: 'kintsugi',
-    index: '04',
+    index: '05',
     title: 'Kintsugi Studio',
     category: '3D · WebGL',
     year: '2025',
@@ -140,7 +154,7 @@ export const projects = [
   },
   {
     id: 'aster',
-    index: '05',
+    index: '06',
     title: 'Aster Botanics',
     category: 'Online store',
     year: '2024',
@@ -150,7 +164,7 @@ export const projects = [
   },
   {
     id: 'halcyon',
-    index: '06',
+    index: '07',
     title: 'Halcyon Festival',
     category: 'Web · Identity',
     year: '2024',
@@ -160,7 +174,7 @@ export const projects = [
   },
   {
     id: 'volt',
-    index: '07',
+    index: '08',
     title: 'Volt Mobility',
     category: 'Web · Product',
     year: '2025',
@@ -170,7 +184,7 @@ export const projects = [
   },
   {
     id: 'atlas',
-    index: '08',
+    index: '09',
     title: 'Atlas Labs',
     category: 'Web · 3D',
     year: '2024',

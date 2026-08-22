@@ -34,6 +34,13 @@
   border-radius: 4px;
 }
 
+/* Purani Dhun brings its own board, its own pigments and its own
+   type. The card fills this frame; everything it needs is its own. */
+.work-art--purani {
+  min-height: 540px;
+  background: #e4e2dc;
+}
+
 .work-art--petvet {
   align-content: end;
   padding: 54px;
@@ -147,12 +154,38 @@
   text-transform: uppercase;
 }
 
+.work-case__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 26px;
+}
+
 .work-case__category {
   color: var(--blue);
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+/* only the builds that are actually online carry one */
+.work-case__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 200ms var(--ease), border-color 200ms var(--ease);
+}
+
+.work-case__live:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .work-page__close {
@@ -186,6 +219,7 @@
   .work-page__list { gap: 64px; }
   .work-case { gap: 28px; }
   .work-art { min-height: 340px; }
+  .work-art--purani { min-height: 400px; }
   .work-art--petvet { padding: 34px; font-size: 51px; }
   .work-art--petvet i { top: 30px; right: 30px; width: 108px; height: 108px; border-width: 7px; }
   .work-art--digithrive { padding: 24px; }

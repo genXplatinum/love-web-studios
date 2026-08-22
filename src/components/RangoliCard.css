@@ -1,0 +1,257 @@
+/* ============================================================
+   Purani Dhun showcase card.
+
+   The card borrows the product's own surface rather than the
+   studio's: a swept cement board, three saturated pigments, and
+   a Devanagari wordmark that leads its own transliteration. It
+   is meant to read as a different object on the page, because it
+   is a different object — the only project here whose interface
+   is a drawing.
+   ============================================================ */
+
+.rangoli-card {
+  /* the board and the three pigments of Saloon Classics.
+     Powder for the figure, ink for anything you have to read. */
+  --pd-board: #e4e2dc;
+  --pd-board-0: rgba(228, 226, 220, 0);
+  --pd-ink: #191c1a;
+  --pd-ink-2: #575a55;
+  --pd-line: #c9c6bd;
+  --pd-peacock-ink: #006d63;
+
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--pd-board);
+  color: var(--pd-ink);
+}
+
+/* A halo, not a backdrop. It clears the strip the wordmark and the deck
+   sit on and then gets out of the way, so the figure stays a figure
+   rather than becoming a watermark printed under the type. */
+.rangoli-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: '';
+  background:
+    radial-gradient(
+      82% 44% at 0% 100%,
+      var(--pd-board) 28%,
+      rgba(228, 226, 220, 0.5) 54%,
+      var(--pd-board-0) 80%
+    ),
+    linear-gradient(to bottom, rgba(228, 226, 220, 0.82) 0%, var(--pd-board-0) 14%);
+  pointer-events: none;
+}
+
+/* ---------- the figure ----------
+   Sized so the whole scalloped flower reads and the progress ring stays
+   on the card, while the disc still runs off the right-hand edge. */
+.rangoli-card__figure {
+  position: absolute;
+  top: 47%;
+  right: -10%;
+  height: 114%;
+  aspect-ratio: 1;
+  translate: var(--lift-x, 0px) calc(-50% + var(--lift-y, 0px));
+  transition: translate 200ms ease-out;
+}
+
+.rangoli-card__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Rings counter-rotate on staggered clocks, the way they do on the
+   live site while the tape is running. */
+.rangoli-card .rg-ring {
+  transform-box: view-box;
+  transform-origin: 500px 500px;
+  animation: rangoli-turn var(--spin, 40s) linear infinite;
+  will-change: transform;
+}
+
+.rangoli-card .rg-ring--rev {
+  animation-direction: reverse;
+}
+
+@keyframes rangoli-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rangoli-card__track {
+  fill: none;
+  stroke: var(--pd-line);
+  stroke-width: 3;
+}
+
+/* how far through the record you are */
+.rangoli-card__progress {
+  transform: rotate(-90deg);
+  transform-box: view-box;
+  transform-origin: 500px 500px;
+  fill: none;
+  stroke: var(--pd-peacock-ink);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+/* ---------- the plate ---------- */
+.rangoli-card__plate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  max-width: 78%;
+  padding: 0 38px 34px;
+}
+
+/* Devanagari leads and the Latin is the transliteration under it,
+   the order a cassette inlay printed them in. */
+.rangoli-card__deva {
+  color: var(--pd-ink);
+  font-family: 'Tiro Devanagari Hindi', 'Nirmala UI', Georgia, serif;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.rangoli-card__latin {
+  color: var(--pd-ink-2);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ---------- the deck ---------- */
+.rangoli-card__deck {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.rangoli-card__keys {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* A key stands proud of the board on a lip. Nothing here lifts
+   toward the cursor — the hover lift is the web's reflex, not a
+   material one — so the keys are drawn at rest and stay there. */
+.rangoli-card__key {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 26px;
+  border: 1px solid var(--pd-line);
+  border-bottom-width: 3px;
+  border-radius: 3px;
+  background: #efeee9;
+}
+
+.rangoli-card__key--wide {
+  width: 40px;
+  border-color: var(--pd-peacock-ink);
+}
+
+.rangoli-card__key svg {
+  width: 13px;
+  height: 13px;
+  fill: var(--pd-ink);
+}
+
+.rangoli-card__key--wide svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--pd-peacock-ink);
+}
+
+/* A label only names a thing: signage caps, underscored, never
+   boxed and never filled. There are no pills on this card. */
+.rangoli-card__legend {
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--pd-line);
+  color: var(--pd-ink-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 920px) {
+  .rangoli-card__deva {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  /* the plate takes a bigger share of a phone-sized card, so the halo
+     has to work a little harder to keep open ground under it */
+  .rangoli-card::after {
+    background:
+      radial-gradient(
+        96% 52% at 0% 100%,
+        var(--pd-board) 30%,
+        rgba(228, 226, 220, 0.62) 58%,
+        var(--pd-board-0) 84%
+      ),
+      linear-gradient(to bottom, rgba(228, 226, 220, 0.82) 0%, var(--pd-board-0) 16%);
+  }
+
+  .rangoli-card__figure {
+    top: 42%;
+    right: -14%;
+    height: 104%;
+  }
+
+  .rangoli-card__legend-tail {
+    display: none;
+  }
+
+  .rangoli-card__plate {
+    max-width: 86%;
+    padding: 0 24px 24px;
+  }
+
+  .rangoli-card__deva {
+    font-size: 33px;
+  }
+
+  .rangoli-card__latin {
+    font-size: 11px;
+  }
+
+  .rangoli-card__deck {
+    margin-top: 14px;
+  }
+
+  .rangoli-card__key {
+    width: 26px;
+    height: 23px;
+  }
+
+  .rangoli-card__key--wide {
+    width: 34px;
+  }
+}
+
+/* The rings hold still the moment the record is paused, like a
+   lifted needle. Same answer for anyone who asked for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .rangoli-card .rg-ring {
+    animation: none !important;
+  }
+}
